@@ -14,7 +14,7 @@ export default function App() {
         await tf.ready()
         setReady(true)
       } catch (error) {
-        console.log({ e: error })
+        console.log({ error })
       }
     }
     console.log("start")
@@ -34,7 +34,6 @@ export default function App() {
           }
         )
         const response = await fetch(localUri!)
-        // printTime('fetched')
         const imageDataArrayBuffer = await response.arrayBuffer()
         const imageData = new Uint8Array(imageDataArrayBuffer)
         const imageTensor = decodeJpeg(imageData)
